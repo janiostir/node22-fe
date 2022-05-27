@@ -4,46 +4,21 @@ import './App.css';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Card from './components/Card';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Nav />
-
-      <main>
-
-        <section className="py-5 text-center container">
-          <div className="row py-lg-5">
-            <div className="col-lg-6 col-md-8 mx-auto">
-              <h1 className="fw-light">Album example</h1>
-              <p className="lead text-muted">Something short and leading about the collection below—its contents, the
-                creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
-                entirely.</p>
-              <p>
-                <a href="#" className="btn btn-primary my-2">Main call to action</a>
-                <a href="#" className="btn btn-secondary my-2">Secondary action</a>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <div className="album py-5 bg-light">
-          <div className="container">
-
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-              <Card />
-
-
-            </div>
-          </div>
-        </div>
-
-      </main>
-
-
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/'} element={<Home />} />
+          <Route path={'/login'} element={<Login />} />
+          <Route path={'/register'} element={<Register />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
